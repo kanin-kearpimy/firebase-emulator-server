@@ -1,0 +1,23 @@
+{
+  "name": "backend-test-firebase-emulator",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev:emulator": "firebase emulators:exec 'npm run start' --import=./tests/data --export-on-exit ./tests/data --ui",
+    "start:emulator": "firebase emulators:exec 'npm run start' --import=./tests/data --export-on-exit ./tests/data",
+    "test:e2e": "npx playwright test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "firebase-admin": "^12.1.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.1"
+  }
+}
