@@ -21,9 +21,11 @@ test("should create a article to POST /aritlces", async ({ request }) => {
     title: "Test from e2e",
   };
 
-  const articles = await request.post(`${HOST}/articles`, mockData);
-  expect(articles.ok()).toBeTruthy();
+  const createArticles = await request.post(`${HOST}/articles`, mockData);
+  expect(createArticles.ok()).toBeTruthy();
 
+  const articles = await request.get(`${HOST}/articles`);
+  expect(articles.ok()).toBeTruthy();
   const data = await articles.json();
   expect(data).toContainEqual(expect.objectContaining(mockData));
 });
