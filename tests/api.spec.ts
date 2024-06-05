@@ -21,7 +21,9 @@ test("should create a article to POST /aritlces", async ({ request }) => {
     title: "Test from e2e",
   };
 
-  const createArticles = await request.post(`${HOST}/articles`, mockData);
+  const createArticles = await request.post(`${HOST}/articles`, {
+    data: mockData,
+  });
   expect(createArticles.ok()).toBeTruthy();
 
   const articles = await request.get(`${HOST}/articles`);
